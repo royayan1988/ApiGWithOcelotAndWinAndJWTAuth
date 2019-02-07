@@ -1,0 +1,48 @@
+﻿{
+    "ReRoutes": [
+        {
+            "DownstreamPathTemplate": "/CusService/api/customers",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "localhost",
+                "Port": 80
+              }
+      ],
+            "UpstreamPathTemplate": "/customers",
+            "UpstreamHttpMethod": [ "Get" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "TestKey",
+                "AllowedScopes": []
+            }
+        },
+      {
+        "DownstreamPathTemplate": "/CusService/api/customers/{id}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 80
+          }
+      ],
+        "UpstreamPathTemplate": "/customers/{id}",
+        "UpstreamHttpMethod": [ "Get" ]
+      },
+      {
+        "DownstreamPathTemplate": "/AuthService/api/auth",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 80
+          }
+        ],
+        "UpstreamPathTemplate": "/auth",
+        "UpstreamHttpMethod": [ "Get" ]
+      }
+    ],
+    "GlobalConfiguration": {
+        "RequestIdKey": "OcRequestId",
+        "AdministrationPath": "/administration"
+    }
+}
